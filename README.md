@@ -32,17 +32,7 @@ six stage pipeline: extract → decrypt → disassemble → lift → structure �
 ## how it works
 
 extracts encrypted bytecode blob via sandbox, decrypts per-function with Dh decompression + Ge XOR + rolling key with guard maps and anti-tamper simulation, lifts to typed IR via symbolic stack simulation with forward dataflow propagation, recovers control flow via dominator/post-dominator analysis, normalizes and beautifies output
-
-## structure
-
-```
-index.js        cli + pipeline
-vm.js           standalone extracted vm
-lib/
-  extract.js    blob + crypto extraction
-  decrypt.js    Dh decompress + XOR decrypt
-  disasm.js     instruction enrichment
-  opcodes.js    140 opcode definitions
+0 opcode definitions
   ir.js         typed IR nodes
   lift.js       symbolic stack sim → IR
   structure.js  dominator-based CFG recovery
